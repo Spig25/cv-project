@@ -4,29 +4,29 @@ class GeneralInfo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      firstName: ``,
-      lastName: ``,
-      email: ``,
-      phone: ``,
-      address: ``,
-      about: ``,
-    };
+    // this.state = {
+    //   firstName: ``,
+    //   lastName: ``,
+    //   email: ``,
+    //   phone: ``,
+    //   address: ``,
+    //   about: ``,
+    // };
 
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (e) => {
-    console.log(e.target.value);
-    this.setState(
-      {
-        [e.target.id]: e.target.value,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
-  };
+  // handleChange = (e) => {
+  //   console.log(e.target.value);
+  //   this.setState(
+  //     {
+  //       [e.target.id]: e.target.value,
+  //     },
+  //     () => {
+  //       console.log(this.state);
+  //     }
+  //   );
+  // };
 
   render() {
     return (
@@ -36,42 +36,42 @@ class GeneralInfo extends Component {
           className="general-input"
           id="firstName"
           placeholder="First Name"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
         <input
           type="text"
           className="general-input"
           id="lastName"
           placeholder="Last Name"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
         <input
           type="text"
           className="general-input"
           id="email"
           placeholder="Email"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
         <input
           type="text"
           className="general-input"
           id="phone"
           placeholder="Phone Number"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
         <input
           type="text"
           className="general-input"
           id="address"
           placeholder="Address"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
         <input
           type="text"
           className="general-input about-me"
           id="about"
           placeholder="About Me"
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
       </div>
     );
