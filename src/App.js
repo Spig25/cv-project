@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       numExperience: 1,
+      numEducation: 1,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,11 +33,19 @@ class App extends Component {
   newExperience = () => {
     this.setState({ numExperience: this.state.numExperience + 1 });
   };
+  newEducation = () => {
+    this.setState({ numEducation: this.state.numEducation + 1 });
+  };
 
   render() {
     const experience = [];
     for (let i = 0; i < this.state.numExperience; i++) {
       experience.push(<Experience handleChange={this.handleChange} key={i} />);
+    }
+
+    const education = [];
+    for (let i = 0; i < this.state.numEducation; i++) {
+      education.push(<Education handleChange={this.handleChange} key={i} />);
     }
 
     return (
@@ -47,8 +56,10 @@ class App extends Component {
           <button type="button" onClick={this.newExperience}>
             Add
           </button>
-          <Education handleChange={this.handleChange} />
-          <button type="button">Add</button>
+          <div className="education-container">{education}</div>
+          <button type="button" onClick={this.newEducation}>
+            Add
+          </button>
         </form>
         <div className="finished-container">
           <CompletedForm
