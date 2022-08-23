@@ -15,7 +15,7 @@ class App extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.newExperience = this.newExperience.bind(this);
+    this.addExperience = this.addExperience.bind(this);
   }
 
   handleChange = (e) => {
@@ -30,10 +30,10 @@ class App extends Component {
     );
   };
 
-  newExperience = () => {
+  addExperience = () => {
     this.setState({ numExperience: this.state.numExperience + 1 });
   };
-  newEducation = () => {
+  addEducation = () => {
     this.setState({ numEducation: this.state.numEducation + 1 });
   };
 
@@ -53,11 +53,11 @@ class App extends Component {
         <form className="input-container">
           <GeneralInfo handleChange={this.handleChange} />
           <div className="experience-container">{experience}</div>
-          <button type="button" onClick={this.newExperience}>
+          <button type="button" onClick={this.addExperience}>
             Add
           </button>
           <div className="education-container">{education}</div>
-          <button type="button" onClick={this.newEducation}>
+          <button type="button" onClick={this.addEducation}>
             Add
           </button>
         </form>
