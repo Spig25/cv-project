@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom/client";
 import CompletedForm from "./components/CompletedForm";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -8,9 +9,12 @@ import "./styles/style.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      numExperience: 1,
+    };
 
     this.handleChange = this.handleChange.bind(this);
+    this.newExperience = this.newExperience.bind(this);
   }
 
   handleChange = (e) => {
@@ -25,13 +29,24 @@ class App extends Component {
     );
   };
 
+  newExperience = () => {
+    this.setState({ numExperience: this.state.numExperience + 1 });
+  };
+
   render() {
+    const experience = [];
+    for (let i = 0; i < this.state.numExperience; i++) {
+      experience.push(<Experience handleChange={this.handleChange} key={i} />);
+    }
+
     return (
       <div className="App">
         <form className="input-container">
           <GeneralInfo handleChange={this.handleChange} />
-          <Experience handleChange={this.handleChange} />
-          <button type="button">Add</button>
+          <div className="experience-container">{experience}</div>
+          <button type="button" onClick={this.newExperience}>
+            Add
+          </button>
           <Education handleChange={this.handleChange} />
           <button type="button">Add</button>
         </form>
