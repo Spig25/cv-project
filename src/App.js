@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
+import CompletedExperience from "./components/CompletedExperience";
 import CompletedForm from "./components/CompletedForm";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -16,6 +17,7 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.addExperience = this.addExperience.bind(this);
+    this.addEducation = this.addEducation.bind(this);
   }
 
   handleChange = (e) => {
@@ -39,8 +41,16 @@ class App extends Component {
 
   render() {
     const experience = [];
+    const completedExperience = [];
     for (let i = 0; i < this.state.numExperience; i++) {
       experience.push(<Experience handleChange={this.handleChange} key={i} />);
+      completedExperience.push(
+        <CompletedExperience
+          experienceTitle={this.state.experienceTitle5}
+          experienceCompany={this.state.experienceCompany}
+          key={i}
+        />
+      );
     }
 
     const education = [];
@@ -70,6 +80,7 @@ class App extends Component {
             address={this.state.address}
             about={this.state.about}
           />
+          {completedExperience}
         </div>
       </div>
     );

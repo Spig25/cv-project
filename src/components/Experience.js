@@ -16,15 +16,37 @@ class Experience extends Component {
           type="text"
           className="experience-input"
           placeholder="Job Title"
+          id="experienceTitle"
+          onChange={this.props.handleChange}
         />
-        <input type="text" className="experience-input" placeholder="Company" />
+        <input
+          type="text"
+          className="experience-input"
+          placeholder="Company"
+          id="experienceCompany"
+          onChange={this.props.handleChange}
+        />
         <input
           type="text"
           className="experience-input"
           placeholder="Location"
+          id="experienceLocation"
+          onChange={this.props.handleChange}
         />
-        <input type="text" className="experience-input" placeholder="From" />
-        <input type="text" className="experience-input" placeholder="To" />
+        <input
+          type="text"
+          className="experience-input"
+          placeholder="From"
+          id="experienceFrom"
+          onChange={this.props.handleChange}
+        />
+        <input
+          type="text"
+          className="experience-input"
+          placeholder="To"
+          id="experienceTo"
+          onChange={this.props.handleChange}
+        />
         <button type="button" onClick={this.deleteSection}>
           Delete
         </button>
